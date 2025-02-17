@@ -1,0 +1,16 @@
+{
+  iss: 'https://accounts.google.com',
+  azp: '1070461573556-10efj5nj04q8q6g94drqfhdtvoo25iti.apps.googleusercontent.com',
+  aud: '1070461573556-10efj5nj04q8q6g94drqfhdtvoo25iti.apps.googleusercontent.com',
+  sub: '113608166332321478893',
+  email: 'malamharid1@gmail.com',
+  email_verified: true,
+  nbf: 1739638861,
+  name: 'VIP Programmer',
+  picture: 'https://lh3.googleusercontent.com/a/ACg8ocKs4N2KiN81KvQShnbrNle60sSTWv3Bbveiq2oKATYBzg-YfOOd=s96-c',
+  given_name: 'VIP',
+  family_name: 'Programmer',
+  iat: 1739639161,
+  exp: 1739642761,
+  jti: 'ac7252214067eecf9466355cf91e1bcd23e4d8f1'
+}
