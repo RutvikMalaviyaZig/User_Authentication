@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "2cbb3443-84a5-4f81-9678-d6a60b6f7dc2",
+		"_postman_id": "44fa186f-7251-451e-a7fc-97490c7d1812",
 		"name": "auth-demo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38057766"
+		"_exporter_id": "42139455"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"hari@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"email\": \"vraj@gmail.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,12 +24,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/auth/email/login",
-							"protocol": "http",
+							"raw": "{{local}}/api/v1/auth/email/login",
 							"host": [
-								"localhost"
+								"{{local}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"v1",
@@ -39,7 +37,78 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "ssssss",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"vraj@gmail.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/v1/auth/email/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"email",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "272"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"110-9qH1UVfQesUWM8MctjCMGMlr8Jg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Feb 2025 07:51:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n        \"message\": \"User logged in successfully\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkYjcwYzdlLTQzYjUtNGI1ZS1iNzYzLTJkMDQ5ZjNhNTBmNSIsImVtYWlsIjoidnJhakBnbWFpbC5jb20iLCJpYXQiOjE3Mzk3Nzg2NjYsImV4cCI6MTczOTg2NTA2Nn0.QBsmPlZ6kYDxHiJ-2t1ZK7PK42i79RxtOeTEGaheXLQ\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Mobile Login",
@@ -56,12 +125,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/auth/mobile/login",
-							"protocol": "http",
+							"raw": "{{local}}/api/v1/auth/mobile/login",
 							"host": [
-								"localhost"
+								"{{local}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"v1",
@@ -71,7 +138,78 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"9737825882\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/v1/auth/mobile/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"mobile",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-RwjVKXJAx8TCkZRCxbLWwn3pPt0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Feb 2025 10:59:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged in successfully\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMjc4MDk3LTM5MjAtNDRjZC04YTYwLTlhNTQ0NTRiNjgwOCIsIm1vYmlsZSI6Ijk3Mzc4MjU4ODIiLCJpYXQiOjE3Mzk3ODk5NzMsImV4cCI6MTczOTg3NjM3M30.mQZ7rENgf1YnfY4GEbEXxDbu78Rx-YhP204nxUwohC0\"\n}"
+						}
+					]
 				},
 				{
 					"name": "google",
@@ -108,7 +246,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Rutvik\",\n    \"lastName\": \"Malaviya\",\n    \"email\": \"rutvik@gmail.com\",\n    \"mobile\": \"9737825882\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"firstName\": \"Vraj1\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj1@gmail.com\",\n    \"mobile\": \"1234567891\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,12 +254,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/auth/signup",
-							"protocol": "http",
+							"raw": "{{local}}/api/v1/auth/signup",
 							"host": [
-								"localhost"
+								"{{local}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"v1",
@@ -130,7 +266,75 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Vraj1\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj1@gmail.com\",\n    \"mobile\": \"1234567891\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/signup",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b5-29EyVAgjWjHW7aLsbUJDVXksi3I\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Feb 2025 11:01:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"id\": \"6f7360d3-bd32-41bd-9af3-48204a234b87\",\n        \"firstName\": \"Vraj1\",\n        \"lastName\": \"Makvana\",\n        \"email\": \"vraj1@gmail.com\",\n        \"mobile\": \"1234567891\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "logout",
@@ -167,7 +371,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4NzlmZDFkLWU5ODgtNDIyOS1iODZkLWFlMGVlYzBjY2I1MSIsImVtYWlsIjoiaGFyaUBnbWFpbC5jb20iLCJpYXQiOjE3Mzk2MzE5OTMsImV4cCI6MTczOTcxODM5M30.AVBmP3wvHEnzaog6pIJ80fgB0kPOZnTkBXFEaLO3C0Y",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dHZpa21AemlnbnV0cy5jb20iLCJpZCI6ImQwYTViZDUxLTc1MTAtNGZhNi1iYzYyLWUzNjQwMjUxYzkwOSIsImlhdCI6MTczOTc3MDA2NSwiZXhwIjoxNzM5ODU2NDY1fQ.W-Yu4KICvtaC7YXNHMio-PAuMz8Pd8srY8veg8Wnd1M",
 									"type": "string"
 								}
 							]

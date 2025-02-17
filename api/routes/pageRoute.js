@@ -1,6 +1,6 @@
-const express = require("express");
+const {express} = require('../../Provider')
 const { verifyAuthMiddleware } = require("../middlewares/verfiyAuthMIddleware");
-const router = express.Router();
+const {router} = require('../../Provider')
 
 router.get("/google", (req, res) => {
   res.render("google", { googleClientId: process.env.GOOGLE_CLIENT_ID });

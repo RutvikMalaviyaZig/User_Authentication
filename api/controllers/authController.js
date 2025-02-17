@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require("uuid");
+
 const bcrypt = require("bcrypt");
 const User = require("../../db/models/user");
 const { generateToken } = require("../utils/jwt");
@@ -6,21 +6,21 @@ const verifyToken = require("../utils/verifyGoogle");
 
 const handleSignup = async (req, res) => {
   const { firstName, lastName, email, password, mobile } = req.body;
-  if (!firstName || !lastName || !email || !password || !mobile) {
+  try {
+     if (!firstName || !lastName || !email || !password || !mobile) {
     return res.status(400).json({ message: "All fields are required" });
   }
-  const id = uuidv4();
+  
   const salt = bcrypt.genSaltSync(10);
   const hashPassword = bcrypt.hashSync(password, salt);
   const userData = {
-    id,
     firstName,
     lastName,
     email,
     mobile,
     password: hashPassword,
   };
-  try {
+ 
     const existEmail = await User.findOne({ where: { email } });
     if (existEmail) {
       return res.status(400).json({ message: "Email already exist" });
@@ -29,17 +29,7 @@ const handleSignup = async (req, res) => {
     if (existMobile) {
       return res.status(400).json({ message: "Mobile already exist" });
     }
-    const newUser = await User.create(userData);
-    return res.status(201).json({
-      message: "User created successfully",
-      user: {
-        id: newUser.id,
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
-        email: newUser.email,
-        mobile: newUser.mobile,
-      },
-    });
+    await User.create(userData);
   } catch (error) {
     return res
       .status(500)
@@ -149,6 +139,11 @@ const handleGoogleLogin = async (req, res) => {
 const handleLogout = (req, res) => {
   res.json({ message: "User logout" });
 };
+
+const handleForgotPassword = async (req,res)=>{
+    const {email} = req.body;
+    
+}
 
 module.exports = {
   handleSignup,

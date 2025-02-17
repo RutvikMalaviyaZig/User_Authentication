@@ -1,4 +1,5 @@
-const express = require("express");
+const {express} = require('../../Provider')
+
 const {
   handleEmailLogin,
   handleMobileLogin,
@@ -6,12 +7,15 @@ const {
   handleLogout,
   handleGoogleLogin,
 } = require("../controllers/authController");
+const {handleForgotPassword} = require('../controllers/forgotController') 
+
 const router = express.Router();
 
 router.post("/email/login", handleEmailLogin);
 router.post("/mobile/login", handleMobileLogin);
 router.post("/google", handleGoogleLogin);
 router.post("/signup", handleSignup);
-router.put("/logout", handleLogout);
+router.post("/logout", handleLogout);
+router.post('/forgotPass', handleForgotPassword)
 
 module.exports = router;

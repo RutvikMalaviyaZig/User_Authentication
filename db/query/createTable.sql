@@ -1,6 +1,6 @@
 
 CREATE TABLE "User" (
-    "id" VARCHAR(255) PRIMARY KEY,
+     "id" UUID PRIMARY KEY ,
     "firstName" VARCHAR(255),
     "lastName" VARCHAR(255),
     "email" VARCHAR(255) NOT NULL UNIQUE,

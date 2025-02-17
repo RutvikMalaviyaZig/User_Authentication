@@ -1,9 +1,9 @@
 require("dotenv").config();
 // core modules
-const express = require("express");
+const {express} = require('./Provider')
 // routes imports
-const apiRoutes = require("./src/routes");
-const pageRoutes = require("./src/routes/pageRoute");
+const apiRoutes = require("./api/routes");
+const pageRoutes = require("./api/routes/pageRoute");
 // import sequize database
 const sequelize = require("./config/database");
 const cors = require("cors");

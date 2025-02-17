@@ -1,17 +1,20 @@
 "use strict";
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
+const { v4: uuidv4 } = require("uuid");
 
 const User = sequelize.define(
   "User",
   {
     id: {
+      type: DataTypes.UUID,
+      defaultValue: uuidv4(),
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
     },
-
+    isDeleted:{
+      type : DataTypes.BOOLEAN,
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -51,6 +54,9 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    otp:{
+      type:DataTypes.STRING,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
@@ -70,5 +76,6 @@ const User = sequelize.define(
     timestamps: true,
   }
 );
+
 
 module.exports = User;
