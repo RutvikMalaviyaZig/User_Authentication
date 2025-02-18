@@ -58,4 +58,18 @@ router.post("/edituser", async (req, res) => {
   }
 });
 
+router.post("/deleteImg", async (req, res) => {
+    try {
+        const { id } = req.body;
+        const media = await Media.findByPk(id);
+        if (!media) {
+        return res.json({ message: "media not found" });
+        }
+        await media.destroy();
+        res.json({ message: "media deleted" });
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
+
 module.exports = router;
