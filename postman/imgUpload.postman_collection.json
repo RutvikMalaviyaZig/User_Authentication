@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "833aa2a3-cdd1-4ed4-adca-f2b5d293dd4a",
+		"name": "imgUpload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42139455"
+	},
+	"item": [
+		{
+			"name": "upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1efede4e-c16d-4360-aafa-d791b896f3f1"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{local}}/img/upload",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"img",
+						"upload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1efede0e-53fd-4e00-bb88-1d6324982060"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/img/upload",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"img",
+								"upload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-l93QbmaIfjzcO7Z4KeMOtRtmAqc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Feb 2025 10:34:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"file uploaded successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "edituser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\" : \"raj\",\n    \"lastName\" : \"patel\",\n    \"profileImgUrl\" : \"75149cac-83cf-454a-8e0e-2316c0bba2c5\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/img/edituser",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"img",
+						"edituser"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\" : \"raj\",\n    \"lastName\" : \"patel\",\n    \"profileImgUrl\" : \"75149cac-83cf-454a-8e0e-2316c0bba2c5\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/img/edituser",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"img",
+								"edituser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a-ASMfoApUJ3y9JnZZqDmv+/C5hog\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Feb 2025 10:42:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user created\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete img",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"75149cac-83cf-454a-8e0e-2316c0bba2c5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/img/deleteImg",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"img",
+						"deleteImg"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"75149cac-83cf-454a-8e0e-2316c0bba2c5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/img/deleteImg",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"img",
+								"deleteImg"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-1Oc41MQQe+ddTD+SgSWYT+Ea/Xo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Feb 2025 11:03:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"media deleted\"\n}"
+				}
+			]
+		}
+	]
+}

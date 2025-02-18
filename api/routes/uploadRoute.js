@@ -3,7 +3,7 @@ const multer = require("multer");
 const path = require("path");
 const Media = require("../../db/models/media");
 const Admin = require("../../db/models/admin");
-const { url } = require("inspector");
+const fs = require('fs')
 
 const router = express.Router();
 
@@ -19,33 +19,40 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single("file");
 
+
+// for the upload the file 
 router.post("/upload", upload, async (req, res) => {
   try {
-    console.log(req.body);
+
     const file = req.file;
     if (!file) {
       return res.json({ message: "file not uploaded" });
     }
 
-    const url = `http://localhost:5000/uploads/${file.filename}`;
-    const data = await Media.create({
+    const url = `http://localhost:5000/uploads/${file.filename}`;  // url for the view image 
+
+    // create media in media table
+    await Media.create({
       url: url,
       path: req.file.path,
       size: req.file.size,
       mimetype: req.file.mimetype,
       originalname: req.file.originalname,
     });
-    console.log(data);
+
     res.json({ message: "file uploaded successfully" });
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
+
+// for the create admin with media id
 router.post("/edituser", async (req, res) => {
   try {
     const { firstName, lastName, profileImgUrl } = req.body;
 
+    // create admin in database ans set profileImgUrl to media id
     await Admin.create({
       firstName: firstName,
       lastName: lastName,
@@ -58,15 +65,25 @@ router.post("/edituser", async (req, res) => {
   }
 });
 
+
+
+// for delete the img 
 router.post("/deleteImg", async (req, res) => {
     try {
         const { id } = req.body;
+
+        // find media by id
         const media = await Media.findByPk(id);
+
+        // if no media the give error 
         if (!media) {
         return res.json({ message: "media not found" });
         }
+
+        // soft remove from the server 
         await media.destroy();
-        res.json({ message: "media deleted" });
+        // fs.unlinkSync(media.url)
+        res.json({ message: "media deleted successfully" });
     } catch (error) {
         res.json({ message: error.message });
     }

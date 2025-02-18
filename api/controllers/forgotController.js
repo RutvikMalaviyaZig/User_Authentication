@@ -8,7 +8,11 @@ const MESSAGES = require("../utils/Messages");
 const User = require("../../db/models/user");
 const { v4: uuidv4 } = require('uuid');
 
+
+
+// for the forgot passward
 async function handleForgotPassword(req, res) {
+
   // Configure nodemailer for email sending
   const transporter = nodemailer.createTransport({
     host: "sandbox.smtp.mailtrap.io",
@@ -20,8 +24,10 @@ async function handleForgotPassword(req, res) {
 
   try {
     const { email } = req.body;
+    // find in database using email
     const user = await User.findOne({ where: { email } });
 
+    // if not then give error
     if (!user) {
       return res
         .status(HTTP_STATUS_CODE.NOT_FOUND)
@@ -32,6 +38,7 @@ async function handleForgotPassword(req, res) {
     const resetToken = uuidv4();
     const resetTokenExpiry = Date.now() + 600000; // 10 min expiration
 
+    // update resetToken AND resetTokenExpiry in database
     await user.update({ resetToken, resetTokenExpiry });
 
     // Send email
@@ -55,57 +62,41 @@ async function handleForgotPassword(req, res) {
   }
 }
 
+
+// when clik on link then goto reset-password api 
 async function handleResetPassword(req, res) {
   try {
     const { resetToken, newPassword } = req.body;
-    console.log(req.body);
+   
+    // match the expiry of the token and find user based on it
     const user = await User.findOne({
       where: { resetTokenExpiry: { [Sequelize.Op.gt]: Date.now() } },
     });
-    console.log(user);
 
+    // if no user then it through error
     if (!user) {
       return res
         .status(HTTP_STATUS_CODE.BAD_REQUEST)
         .json(MESSAGES.INVALID_OR_EXPIRED_TOKEN);
     }
 
-    // const barearToken = req.headers.authorization;
-    // if (!barearToken) {
-    //   return res
-    //     .status(HTTP_STATUS_CODE.UNAUTHORIZED)
-    //     .json(MESSAGES.UNAUTHORIZED);
-    // }
-    // const AuthToken = barearToken.split(" ")[1];
-    // if (!AuthToken) {
-    //   return res
-    //     .status(HTTP_STATUS_CODE.UNAUTHORIZED)
-    //     .json(MESSAGES.UNAUTHORIZED);
-    // }
+    // find user based on the resetToken
     const tokenCheckInDB = await User.findOne({
       where: { resetToken: { [Op.eq]: resetToken }  },
     });
 
     
-  
-
+    // if no token then through error
     if (!tokenCheckInDB) {
       return res
         .status(HTTP_STATUS_CODE.BAD_REQUEST)
         .json(MESSAGES.INVALID_TOKEN);
     }
-    // Compare the provided token with the hashed token in the database
-    // const isTokenValid = jwt.verify(AuthToken, user.resetToken);
-    // if (!isTokenValid) {
-    //   return res
-    //     .status(HTTP_STATUS_CODE.BAD_REQUEST)
-    //     .json(MESSAGES.INVALID_TOKEN);
-    // }
 
-
-    // Hash the new password
+    // Hash the new password if token is exist
     const hashedPassword = await bcrypt.hash(newPassword, 10);
  
+    // update password  in database and set resetToken AND resetTokenExpiry null in database
     await User.update(
       {
         password: hashedPassword,

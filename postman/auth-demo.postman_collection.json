@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"vraj@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"email\": \"vraj2@gmail.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,12 +53,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:5000/api/v1/auth/email/login",
-									"protocol": "http",
+									"raw": "{{local}}/api/v1/auth/email/login",
 									"host": [
-										"localhost"
+										"{{local}}"
 									],
-									"port": "5000",
 									"path": [
 										"api",
 										"v1",
@@ -246,7 +244,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Vraj1\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj1@gmail.com\",\n    \"mobile\": \"1234567891\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"firstName\": \"Vraj2\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj2@gmail.com\",\n    \"mobile\": \"1234567892\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -268,13 +266,13 @@
 					},
 					"response": [
 						{
-							"name": "response",
+							"name": "signup",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"firstName\": \"Vraj1\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj1@gmail.com\",\n    \"mobile\": \"1234567891\",\n    \"password\": \"123456\"\n}",
+									"raw": "{\n    \"firstName\": \"Vraj2\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj2@gmail.com\",\n    \"mobile\": \"1234567892\",\n    \"password\": \"123456\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -294,8 +292,8 @@
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -312,15 +310,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "181"
+									"value": "392"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"b5-29EyVAgjWjHW7aLsbUJDVXksi3I\""
+									"value": "W/\"188-4W0YUxZnExK8qqWd0XIQeKfWnOQ\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 17 Feb 2025 11:01:37 GMT"
+									"value": "Tue, 18 Feb 2025 05:14:57 GMT"
 								},
 								{
 									"key": "Connection",
@@ -332,7 +330,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"id\": \"6f7360d3-bd32-41bd-9af3-48204a234b87\",\n        \"firstName\": \"Vraj1\",\n        \"lastName\": \"Makvana\",\n        \"email\": \"vraj1@gmail.com\",\n        \"mobile\": \"1234567891\"\n    }\n}"
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"id\": \"6db4e30b-f299-43c1-9099-691a58946c61\",\n        \"firstName\": \"Vraj2\",\n        \"lastName\": \"Makvana\",\n        \"email\": \"vraj2@gmail.com\",\n        \"mobile\": \"1234567892\",\n        \"password\": \"$2b$10$O4S1w84yNxMkLXaSmIjfDOQQk9JQE5O0jPUPY52g765bznhpcqy.6\",\n        \"updatedAt\": \"2025-02-17T23:44:57.109Z\",\n        \"createdAt\": \"2025-02-17T23:44:57.109Z\",\n        \"resetToken\": null,\n        \"resetTokenExpiry\": null,\n        \"deletedAt\": null\n    }\n}"
 						}
 					]
 				},
@@ -357,6 +355,203 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"vraj2@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/auth/forgot-password",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"vraj2@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/forgot-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12b-VEjFEgcfYTLYkg1jbZxBdw12TXw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 05:29:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Reset link sent\",\n    \"resetTokenExpiry\": 1739857164788,\n    \"resetToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZkYjRlMzBiLWYyOTktNDNjMS05MDk5LTY5MWE1ODk0NmM2MSIsImVtYWlsIjoidnJhajJAZ21haWwuY29tIiwiaWF0IjoxNzM5ODU2NTY0LCJleHAiOjE3Mzk4NTcxNjR9.ZeeIYBPyjg5TncohnlnlxflqMEtbV_vlJyh43fetOn4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newPassword\": \"vraj\",\n    \"resetToken\":\"897de620-61a0-468a-8898-61593e020683\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/auth/reset-password",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"newPassword\": \"vraj\",\n    \"resetToken\":\"897de620-61a0-468a-8898-61593e020683\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/reset-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-aV0iP/EZfzXiIKlg7jga1cv8fuA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 06:21:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Password reset successful\""
+						}
+					]
 				}
 			]
 		},
