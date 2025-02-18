@@ -1,9 +1,12 @@
 require("dotenv").config();
 // core modules
 const {express} = require('./Provider')
+const path = require('path')
+
 // routes imports
-const apiRoutes = require("./api/routes");
+const apiRoutes = require("./api/routes/index");
 const pageRoutes = require("./api/routes/pageRoute");
+
 // import sequize database
 const sequelize = require("./config/database");
 const cors = require("cors");
@@ -12,7 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+// app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+
 
 // cors setup
 app.use(

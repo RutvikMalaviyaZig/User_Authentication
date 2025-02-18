@@ -1,7 +1,8 @@
-const {express} = require('../../Provider')
+const {express} = require('../../Provider') 
+const router = express.Router();
 const { verifyAuthMiddleware } = require("../middlewares/verfiyAuthMIddleware");
 const { handleGetProfile } = require("../controllers/userController");
-const {router} = require('../../Provider')
+
 
 router.get("/profile", verifyAuthMiddleware, handleGetProfile);
 

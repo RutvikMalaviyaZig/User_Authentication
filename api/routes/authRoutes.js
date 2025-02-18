@@ -16,7 +16,7 @@ router.post("/mobile/login", handleMobileLogin);
 router.post("/google", handleGoogleLogin);
 router.post("/signup", handleSignup);
 router.post("/logout", handleLogout);
-router.post('/forget-password', handleForgotPassword);
-router.post('/reset-password', handleResetPassword);
+router.post('/forgot-password', handleForgotPassword);
+router.patch('/reset-password', handleResetPassword);
 
 module.exports = router;

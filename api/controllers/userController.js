@@ -1,3 +1,5 @@
+const HTTP_STATUS_CODE = require("../utils/httpStatusCodes");
+const MESSAGES = require("../utils/Messages");
 const User = require("../../db/models/user");
 
 const handleGetProfile = async (req, res) => {
@@ -5,9 +7,9 @@ const handleGetProfile = async (req, res) => {
   try {
     const user = await User.findOne({ where: { id } });
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(HTTP_STATUS_CODE.NOT_FOUND).json(MESSAGES.USER_NOT_FOUND);
     }
-    return res.status(200).json({
+    return res.status(HTTP_STATUS_CODE.OK).json({
       id: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
@@ -15,7 +17,7 @@ const handleGetProfile = async (req, res) => {
       mobile: user.mobile,
     });
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR).json(MESSAGES.INTERNAL_SERVER_ERROR);
   }
 };
 
