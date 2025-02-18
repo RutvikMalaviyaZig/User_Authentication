@@ -5,6 +5,9 @@ const Media = require("../../db/models/media");
 const Admin = require("../../db/models/admin");
 const fs = require('fs')
 
+const MESSAGES = require('../utils/Messages');
+const HTTP_STATUS_CODE = require("../utils/httpStatusCodes")
+
 const router = express.Router();
 
 const storage = multer.diskStorage({
@@ -26,7 +29,9 @@ router.post("/upload", upload, async (req, res) => {
 
     const file = req.file;
     if (!file) {
-      return res.json({ message: "file not uploaded" });
+      return res.status(HTTP_STATUS_CODE.BAD_REQUEST).json({
+        message : MESSAGES.FILE_NOT_UPLOADED,
+      });
     }
 
     const url = `http://localhost:5000/uploads/${file.filename}`;  // url for the view image 
@@ -40,14 +45,14 @@ router.post("/upload", upload, async (req, res) => {
       originalname: req.file.originalname,
     });
 
-    res.json({ message: "file uploaded successfully" });
+    res.status(HTTP_STATUS_CODE.OK).json({ message: MESSAGES.FILE_UPLOADED_SUCCESSFULLY });
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
 
-// for the create admin with media id
+// for the create admin with refering media id
 router.post("/edituser", async (req, res) => {
   try {
     const { firstName, lastName, profileImgUrl } = req.body;
@@ -59,7 +64,7 @@ router.post("/edituser", async (req, res) => {
       profileImgUrl: profileImgUrl,
     });
 
-    res.json({ message: "user created" });   
+    res.status(HTTP_STATUS_CODE.CREATED).json({ message: MESSAGES.USER_CREATED });   
   } catch (error) {
     res.json({ message: error.message });
   }
@@ -80,10 +85,10 @@ router.post("/deleteImg", async (req, res) => {
         return res.json({ message: "media not found" });
         }
 
-        // soft remove from the server 
+        //  remove from the server 
         await media.destroy();
         // fs.unlinkSync(media.url)
-        res.json({ message: "media deleted successfully" });
+        res.status(HTTP_STATUS_CODE.OK).json({ message: MESSAGES.MEDIA_DELETED_SUCCESSFULLY });
     } catch (error) {
         res.json({ message: error.message });
     }

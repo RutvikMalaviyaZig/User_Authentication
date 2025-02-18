@@ -28,6 +28,10 @@ const MESSAGES = {
   PASSWORD_RESET_SUCCESSFUL: "Password reset successful",
   PASSWORD_RESET_ERROR: "Error resetting password",
   RESET_LINK_SENT: "Reset link sent",
+  FILE_NOT_UPLOADED : "file not uploaded",
+  FILE_UPLOADED_SUCCESSFULLY: "file uploaded successfully",
+  USER_CREATED : "user created",
+  MEDIA_DELETED_SUCCESSFULLY :  "media deleted successfully" ,
 };
 
 module.exports = MESSAGES;
