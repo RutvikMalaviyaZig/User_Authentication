@@ -6,6 +6,7 @@ const path = require('path')
 // routes imports
 const apiRoutes = require("./api/routes/index");
 const pageRoutes = require("./api/routes/pageRoute");
+const uploadRoutes = require("./api/routes/uploadRoute");
 
 // import sequize database
 const sequelize = require("./config/database");
@@ -16,6 +17,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'))
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+
 // app.set('view engine', 'ejs');
 // app.set('views', path.join(__dirname, 'views'));
 
@@ -43,6 +47,8 @@ app.get("/", (req, res) => {
 // routes
 app.use("/api/v1", apiRoutes);
 app.use("/page", pageRoutes);
+app.use('/img', uploadRoutes)
+
 
 app.listen(PORT, (req, res) => {
   console.log(`server is listening at http://localhost:${PORT}`);
