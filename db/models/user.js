@@ -8,12 +8,9 @@ const User = sequelize.define(
   {
     id: {
       type: DataTypes.UUID,
-      defaultValue: uuidv4(),
       allowNull: false,
       primaryKey: true,
-    },
-    isDeleted:{
-      type : DataTypes.BOOLEAN,
+      defaultValue: uuidv4, // Ensure UUID default value
     },
     firstName: {
       type: DataTypes.STRING,
@@ -28,15 +25,9 @@ const User = sequelize.define(
       unique: true,
       allowNull: false,
       validate: {
-        notNull: {
-          msg: "email is required",
-        },
-        notEmpty: {
-          msg: "email is required",
-        },
-        isEmail: {
-          msg: "Invalid email",
-        },
+        notNull: { msg: "Email is required" },
+        notEmpty: { msg: "Email is required" },
+        isEmail: { msg: "Invalid email" },
       },
     },
     mobile: {
@@ -44,18 +35,22 @@ const User = sequelize.define(
       unique: true,
       allowNull: true,
       validate: {
-        len: {
-          args: [10, 10],
-          msg: "Mobile number must be 10 digits",
-        },
+        len: { args: [10, 10], msg: "Mobile number must be 10 digits" },
       },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    otp:{
-      type:DataTypes.STRING,
+    resetToken: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: "reset_token", // Explicitly map to PostgreSQL column
+    },
+    resetTokenExpiry: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      field: "reset_token_expiry", // Explicitly map to PostgreSQL column
     },
     createdAt: {
       allowNull: false,
@@ -71,11 +66,10 @@ const User = sequelize.define(
   },
   {
     paranoid: true,
-    freezeTableName: true,
+    freezeTableName: true, // Ensures table name remains "User"
     modelName: "User",
     timestamps: true,
   }
 );
-
 
 module.exports = User;
