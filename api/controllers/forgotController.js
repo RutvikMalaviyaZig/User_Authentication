@@ -1,5 +1,6 @@
+require('dotenv').config();
+
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const Sequelize = require("sequelize");
 const { Op } = require('sequelize')
@@ -15,10 +16,10 @@ async function handleForgotPassword(req, res) {
 
   // Configure nodemailer for email sending
   const transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
+    host: process.env.MAIL_HOST,
     auth: {
-      user: "90264eb632827a",
-      pass: "c0bec5345016ce",
+      user:process.env.MAIL_USER ,
+      pass: process.env.MAIL_PASS,
     },
   });
 
@@ -42,12 +43,12 @@ async function handleForgotPassword(req, res) {
     await user.update({ resetToken, resetTokenExpiry });
 
     // Send email
-    const resetLink = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
+    const resetLink = process.env.RESET_LINK;
     await transporter.sendMail({
-      from: "no-reply@example.com",
+      from: process.env.MAIL_FORM_EMAIL,
       to: user.email,
-      subject: "Password Reset Request",
-      html: `<p>You requested a password reset. Click <a href="${resetLink}">here</a> to reset your password.</p>`,
+      subject: process.env.MAIL_SUBJECT,
+      html: process.env.MAIL_HTML,
     });
 
     res.json({

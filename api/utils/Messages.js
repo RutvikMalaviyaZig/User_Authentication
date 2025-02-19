@@ -30,8 +30,10 @@ const MESSAGES = {
   RESET_LINK_SENT: "Reset link sent",
   FILE_NOT_UPLOADED : "file not uploaded",
   FILE_UPLOADED_SUCCESSFULLY: "file uploaded successfully",
-  USER_CREATED : "user created",
+  USER_CREATED : "user created successfully",
   MEDIA_DELETED_SUCCESSFULLY :  "media deleted successfully" ,
+  MEDIA_NOT_FOUND : "media not found",
+  USER_LOGOUT: 'user logout '
 };
 
 module.exports = MESSAGES;

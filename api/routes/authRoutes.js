@@ -1,4 +1,5 @@
 const {express} = require('../../Provider')
+const { verifyAuthMiddleware } = require('../middlewares/verfiyAuthMIddleware')
 
 const {
   handleEmailLogin,
@@ -15,7 +16,7 @@ router.post("/email/login", handleEmailLogin);
 router.post("/mobile/login", handleMobileLogin);
 router.post("/google", handleGoogleLogin);
 router.post("/signup", handleSignup);
-router.post("/logout", handleLogout);
+router.post("/logout", verifyAuthMiddleware, handleLogout);
 router.post('/forgot-password', handleForgotPassword);
 router.patch('/reset-password', handleResetPassword);
 
