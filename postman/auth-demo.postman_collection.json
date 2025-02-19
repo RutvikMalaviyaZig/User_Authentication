@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"vraj2@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"email\": \"vraj3@gmail.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -115,7 +115,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mobile\": \"9737825882\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"mobile\": \"1234567893\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -244,7 +244,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Vraj2\",\n    \"lastName\": \"Makvana\",\n    \"email\": \"vraj2@gmail.com\",\n    \"mobile\": \"1234567892\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"firstName\": \"Vraj3\",\n    \"lastName\": \"Makvana3\",\n    \"email\": \"vraj3@gmail.com\",\n    \"mobile\": \"1234567893\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -337,19 +337,27 @@
 				{
 					"name": "logout",
 					"request": {
-						"method": "PUT",
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0ZTNlZmRhLWMyYTUtNDhkNi1hOTg1LTM3MGY4NDE2ZWU4YSIsImVtYWlsIjoidnJhajNAZ21haWwuY29tIiwiaWF0IjoxNzM5OTUxNDQ3LCJleHAiOjE3NDAwMzc4NDd9.Iwd9_YGlkEjwxfcgxZp_4ZcaPyCYRXtEHkdT8_IizhU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/users/logout",
-							"protocol": "http",
+							"raw": "{{local}}/api/v1/auth/logout",
 							"host": [
-								"localhost"
+								"{{local}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"v1",
-								"users",
+								"auth",
 								"logout"
 							]
 						}
@@ -363,7 +371,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"vraj2@gmail.com\"\n}",
+							"raw": "{\n    \"email\": \"vraj3@gmail.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -463,7 +471,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"newPassword\": \"vraj\",\n    \"resetToken\":\"897de620-61a0-468a-8898-61593e020683\"\n}",
+							"raw": "{\n    \"newPassword\": \"vraj\",\n    \"resetToken\":\"44e9f2e7-9911-4412-96ad-3310238c6568\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -560,19 +568,31 @@
 			"item": [
 				{
 					"name": "profile [protected]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dHZpa21AemlnbnV0cy5jb20iLCJpZCI6ImQwYTViZDUxLTc1MTAtNGZhNi1iYzYyLWUzNjQwMjUxYzkwOSIsImlhdCI6MTczOTc3MDA2NSwiZXhwIjoxNzM5ODU2NDY1fQ.W-Yu4KICvtaC7YXNHMio-PAuMz8Pd8srY8veg8Wnd1M",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0ZTNlZmRhLWMyYTUtNDhkNi1hOTg1LTM3MGY4NDE2ZWU4YSIsImVtYWlsIjoidnJhajNAZ21haWwuY29tIiwiaWF0IjoxNzM5OTU0NTcxLCJleHAiOjE3NDAwNDA5NzF9.kxYZZ6Vb019Cx28tPZewshfk5asi59SuqVGDnIyQnV4",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/users/profile",
 							"protocol": "http",

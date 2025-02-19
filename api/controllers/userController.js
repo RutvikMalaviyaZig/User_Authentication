@@ -4,7 +4,7 @@ const User = require("../../db/models/user");
 
 // get userProfile
 const handleGetProfile = async (req, res) => {
-  const { id } = req.user;
+  const { id,email } = req.user;
   try {
     // find user based on the id 
     const user = await User.findOne({ where: { id } });

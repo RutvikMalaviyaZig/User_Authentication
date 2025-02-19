@@ -17,7 +17,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "postman-cloud:///1efede4e-c16d-4360-aafa-d791b896f3f1"
+							"src": "postman-cloud:///1efeddfc-48e1-4330-a25c-949ed2375b2e"
 						}
 					]
 				},
@@ -111,7 +111,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\" : \"raj\",\n    \"lastName\" : \"patel\",\n    \"profileImgUrl\" : \"75149cac-83cf-454a-8e0e-2316c0bba2c5\"\n    }",
+					"raw": "{\n    \"firstName\" : \"raj\",\n    \"lastName\" : \"patel\",\n    \"profileImgUrl\" : \"9af3b118-9b82-417f-874a-fe293c8ae459\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -204,7 +204,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\" : \"75149cac-83cf-454a-8e0e-2316c0bba2c5\"\n}",
+					"raw": "{\n    \"id\" : \"9af3b118-9b82-417f-874a-fe293c8ae459\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

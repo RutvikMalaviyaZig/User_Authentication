@@ -28,9 +28,12 @@ const handleUpload = async (req, res) => {
       originalname: req.file.originalname,
     });
 
+    
     res
       .status(HTTP_STATUS_CODE.OK)
-      .json({ message: MESSAGES.FILE_UPLOADED_SUCCESSFULLY });
+      .json({ message: MESSAGES.FILE_UPLOADED_SUCCESSFULLY ,
+        data : file
+      });
   } catch (error) {
     res.json({ message: error.message });
   }
